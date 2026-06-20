@@ -1,7 +1,6 @@
 "use client";
 
 import React, { useRef, useState } from "react";
-import Image from "next/image";
 import { motion } from "framer-motion";
 import { ChevronLeft, ChevronRight, Compass, CheckCircle } from "lucide-react";
 
@@ -162,20 +161,6 @@ export default function SuccessStories() {
               {/* Outcome / Client row */}
               <div className="border-t border-white/5 pt-6 mt-4 flex items-center justify-between gap-4">
                 <div className="flex items-center gap-4">
-                  <div className="relative w-12 h-12 rounded-full overflow-hidden border border-white/10 bg-charcoal">
-                    {story.id === 3 ? (
-                      <div className="w-full h-full flex items-center justify-center bg-accent text-charcoal font-bold text-sm">
-                        EV
-                      </div>
-                    ) : (
-                      <Image
-                        src={story.image}
-                        alt={story.name}
-                        fill
-                        className="object-cover object-center"
-                      />
-                    )}
-                  </div>
                   <div className="flex flex-col">
                     <span className="text-sm font-bold text-white">{story.name}</span>
                     <span className="text-xs text-gray-500">{story.role}</span>

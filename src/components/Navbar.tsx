@@ -29,18 +29,19 @@ export default function Navbar() {
   ];
 
   return (
-    <nav
-      className={`fixed top-0 left-0 w-full z-50 transition-all duration-500 ${
-        scrolled
-          ? "bg-charcoal/80 border-b border-white/5 py-4 backdrop-blur-md"
-          : "bg-transparent py-6"
-      }`}
-    >
-      <div className="max-w-7xl mx-auto px-6 md:px-12 flex justify-between items-center">
-        {/* Brand Logo */}
+    <div className="w-full flex justify-center absolute top-4 sm:top-6 z-50 px-4 pointer-events-none">
+      <nav
+        className={`w-full max-w-6xl rounded-full pointer-events-auto transition-all duration-500 ${
+          scrolled
+            ? "bg-white/80 border border-gray-200/50 py-2 px-6 sm:px-8 backdrop-blur-xl shadow-[0_8px_30px_rgb(0,0,0,0.08)]"
+            : "bg-white/95 py-2.5 px-6 sm:px-8 shadow-[0_4px_20px_rgb(0,0,0,0.04)] border border-gray-100 backdrop-blur-md"
+        }`}
+      >
+        <div className="flex justify-between items-center w-full">
+          {/* Brand Logo */}
         <a 
           href="#" 
-          className="flex items-center gap-2.5 group bg-white/95 hover:bg-white backdrop-blur-md px-3.5 py-1.5 rounded-xl border border-white/20 shadow-[0_4px_20px_rgba(255,255,255,0.08)] hover:scale-[1.02] active:scale-[0.98] transition-all duration-300"
+          className="flex items-center gap-2.5 group px-2 py-1 rounded-xl hover:scale-[1.02] active:scale-[0.98] transition-transform duration-300"
         >
           <div className="flex items-center gap-2">
             <Image 
@@ -69,26 +70,25 @@ export default function Navbar() {
         </a>
 
         {/* Desktop Nav Links */}
-        <div className="hidden lg:flex items-center gap-8">
-          <div className="flex items-center gap-6">
+        <div className="hidden lg:flex items-center gap-2">
+          <div className="flex items-center bg-gray-50/50 p-1.5 rounded-full border border-gray-100">
             {navLinks.map((link) => (
               <a
                 key={link.name}
                 href={link.href}
-                className="text-sm font-medium text-gray-300 hover:text-primary transition-colors duration-300 relative py-1 group"
+                className="text-sm font-medium text-gray-600 hover:text-charcoal hover:bg-white px-4 py-1.5 rounded-full hover:shadow-[0_2px_8px_rgb(0,0,0,0.04)] transition-all duration-300"
               >
                 {link.name}
-                <span className="absolute bottom-0 left-0 w-0 h-[2px] bg-primary transition-all duration-300 group-hover:w-full"></span>
               </a>
             ))}
           </div>
 
-          <div className="h-4 w-[1px] bg-white/10"></div>
+          <div className="w-2"></div>
 
           {/* Consultation CTA */}
           <a
             href="#booking"
-            className="flex items-center gap-2 bg-gradient-to-r from-primary to-orange-600 text-white px-5 py-2.5 rounded-full text-sm font-semibold hover:shadow-[0_0_20px_rgba(255,107,0,0.4)] transition-all duration-300 border border-primary/20 hover:scale-[1.02]"
+            className="flex items-center gap-2 bg-charcoal text-white px-6 py-2 rounded-full text-sm font-medium hover:bg-charcoal/90 hover:shadow-[0_4px_15px_rgba(0,0,0,0.1)] transition-all duration-300 hover:-translate-y-0.5 active:translate-y-0"
           >
             <PhoneCall className="w-4 h-4" />
             Book Consultation
@@ -98,7 +98,7 @@ export default function Navbar() {
         {/* Mobile Toggle */}
         <button
           onClick={() => setIsOpen(!isOpen)}
-          className="lg:hidden text-gray-300 hover:text-white p-1"
+          className="lg:hidden text-gray-600 hover:text-primary p-1"
           aria-label="Toggle menu"
         >
           {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
@@ -107,8 +107,8 @@ export default function Navbar() {
 
       {/* Mobile Drawer */}
       <div
-        className={`fixed inset-y-0 right-0 w-[80%] max-w-sm bg-charcoal border-l border-white/5 z-40 transform transition-transform duration-500 ease-out flex flex-col justify-between py-24 px-8 lg:hidden ${
-          isOpen ? "translate-x-0 shadow-2xl shadow-black/80" : "translate-x-full"
+        className={`fixed inset-y-0 right-0 w-[80%] max-w-sm bg-white border-l border-gray-200 z-40 transform transition-transform duration-500 ease-out flex flex-col justify-between py-24 px-8 lg:hidden ${
+          isOpen ? "translate-x-0 shadow-2xl shadow-black/20" : "translate-x-full"
         }`}
       >
         <div className="flex flex-col gap-6">
@@ -117,7 +117,7 @@ export default function Navbar() {
               key={link.name}
               href={link.href}
               onClick={() => setIsOpen(false)}
-              className="text-lg font-medium text-gray-300 hover:text-primary border-b border-white/5 pb-2 transition-colors duration-300"
+              className="text-lg font-medium text-gray-700 hover:text-primary border-b border-gray-100 pb-2 transition-colors duration-300"
             >
               {link.name}
             </a>
@@ -143,9 +143,10 @@ export default function Navbar() {
       {isOpen && (
         <div
           onClick={() => setIsOpen(false)}
-          className="fixed inset-0 bg-black/60 z-30 lg:hidden backdrop-blur-sm transition-opacity duration-300"
+          className="fixed inset-0 bg-black/60 z-30 lg:hidden backdrop-blur-sm transition-opacity duration-300 pointer-events-auto"
         />
       )}
-    </nav>
+      </nav>
+    </div>
   );
 }

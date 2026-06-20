@@ -15,10 +15,8 @@ interface AchievementItem {
 const ACHIEVEMENTS: AchievementItem[] = [
   { label: "Consulting Practice", value: 14, suffix: "+ Years", icon: Clock, color: "text-primary" },
   { label: "Successful Clients Placed", value: 10000, suffix: "+ Cases", icon: Trophy, color: "text-accent" },
-  { label: "Audit Visa Success", value: 95, suffix: "% Rate", icon: CheckCircle, color: "text-white" },
   { label: "Global Destination Network", value: 25, suffix: "+ Countries", icon: Earth, color: "text-accent" },
   { label: "Academic Partner Institutions", value: 500, suffix: "+ Universities", icon: Landmark, color: "text-primary" },
-  { label: "Highly Satisfied Reviews", value: 4500, suffix: "+ Reviews", icon: HeartHandshake, color: "text-white" },
 ];
 
 const SIGNATURE_ACHIEVEMENTS = [

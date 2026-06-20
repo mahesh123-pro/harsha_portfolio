@@ -28,33 +28,6 @@ const TECH_FEATURES: TechFeature[] = [
   },
 ];
 
-interface AwardItem {
-  title: string;
-  year: string;
-  issuer: string;
-  desc: string;
-}
-
-const AWARDS: AwardItem[] = [
-  {
-    title: "Consultancy Excellence Award",
-    year: "2025",
-    issuer: "Global Mobility Consortium",
-    desc: "Recognized for pioneering transparent advisory practices and sustaining a 95%+ visa success rate.",
-  },
-  {
-    title: "Client Choice Award",
-    year: "2024",
-    issuer: "Immigration Excellence Forum",
-    desc: "Awarded based on public satisfaction ratings, reviews, and complex case resolution histories.",
-  },
-  {
-    title: "Education Partnership Award",
-    year: "2023",
-    issuer: "International Student Network",
-    desc: "Honored for outstanding facilitation of global university relationships and candidate preparedness.",
-  },
-];
 
 export default function VisaEnsureShowcase() {
   return (
@@ -122,55 +95,7 @@ export default function VisaEnsureShowcase() {
           </div>
         </div>
 
-        {/* Awards & Recognition Sub-block */}
-        <div className="pt-20 border-t border-white/5">
-          <div className="text-center max-w-3xl mx-auto mb-16">
-            <span className="text-xs font-bold uppercase tracking-widest text-accent mb-2 block">
-              Accreditation
-            </span>
-            <h3 className="text-2xl md:text-4xl font-serif font-bold text-white">
-              Awards & Executive Recognition
-            </h3>
-          </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {AWARDS.map((award, i) => (
-              <motion.div
-                key={i}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: i * 0.1 }}
-                className="p-6 rounded-3xl glass-panel border border-white/5 flex flex-col justify-between items-center text-center relative group overflow-hidden"
-              >
-                {/* Glowing ornament */}
-                <div className="absolute top-0 right-0 w-16 h-16 bg-gradient-to-br from-accent/10 to-transparent rounded-bl-full pointer-events-none" />
-
-                <div className="flex flex-col items-center">
-                  <div className="w-12 h-12 rounded-full bg-accent/10 text-accent flex items-center justify-center mb-6 border border-accent/20 group-hover:scale-105 transition-transform duration-300">
-                    <Award className="w-6 h-6 text-accent" />
-                  </div>
-
-                  <span className="text-xs font-bold text-accent uppercase tracking-widest block mb-2">
-                    {award.year}
-                  </span>
-                  
-                  <h4 className="text-lg font-serif font-bold text-white mb-2">
-                    {award.title}
-                  </h4>
-                  
-                  <span className="text-[10px] text-gray-400 uppercase tracking-widest font-semibold block mb-4">
-                    Issued by: {award.issuer}
-                  </span>
-
-                  <p className="text-xs text-gray-400 font-light leading-relaxed mb-4">
-                    {award.desc}
-                  </p>
-                </div>
-              </motion.div>
-            ))}
-          </div>
-        </div>
 
       </div>
     </section>
